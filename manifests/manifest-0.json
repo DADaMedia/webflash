@@ -6,6 +6,14 @@
       "chipFamily": "ESP32-S3",
       "parts": [
         {
+          "path": "/flash/zeiterfassung/bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "/flash/zeiterfassung/partitions.bin",
+          "offset": 32768
+        },
+        {
           "path": "/flash/zeiterfassung/firmware.bin",
           "offset": 65536
         }
