@@ -4,7 +4,7 @@
   "builds": [
     {
       "name": "Zeiterfassung",
-      "version": "65e6a09",
+      "version": "1fe8d13",
       "chipFamily": "ESP32-S3",
       "parts": [
         { "path": "zeiterfassung/bootloader.bin", "offset": 0 },
