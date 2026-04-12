@@ -33,5 +33,15 @@
         { "path": "lohne-display/firmware.bin", "offset": 65536 }
       ]
     }
+  ,{
+      "name": "Zerfa Display",
+      "version": "fe41038",
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        { "path": "zerfa-display/bootloader.bin", "offset": 0 },
+        { "path": "zerfa-display/partitions.bin", "offset": 32768 },
+        { "path": "zerfa-display/firmware.bin", "offset": 65536 }
+      ]
+    }
   ]
 }

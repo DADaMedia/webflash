@@ -1,0 +1,23 @@
+{
+  "name": "Zerfa Display",
+  "version": "fe41038",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "/flash/zerfa-display/bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "/flash/zerfa-display/partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "/flash/zerfa-display/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
