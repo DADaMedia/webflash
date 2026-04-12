@@ -1,6 +1,6 @@
 {
   "name": "Zerfa Display",
-  "version": "fe41038",
+  "version": "65e6a09",
   "builds": [
     {
       "chipFamily": "ESP32-S3",
