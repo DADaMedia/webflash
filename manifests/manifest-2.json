@@ -6,6 +6,14 @@
       "chipFamily": "ESP32-S3",
       "parts": [
         {
+          "path": "/flash/lohne-display/bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "/flash/lohne-display/partitions.bin",
+          "offset": 32768
+        },
+        {
           "path": "/flash/lohne-display/firmware.bin",
           "offset": 65536
         }

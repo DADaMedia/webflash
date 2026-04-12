@@ -6,6 +6,18 @@
       "chipFamily": "ESP32",
       "parts": [
         {
+          "path": "/flash/lohne-relaisboard/bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "/flash/lohne-relaisboard/partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "/flash/lohne-relaisboard/ota_data_initial.bin",
+          "offset": 53248
+        },
+        {
           "path": "/flash/lohne-relaisboard/firmware.bin",
           "offset": 65536
         }

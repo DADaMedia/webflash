@@ -7,10 +7,7 @@
       "version": "65e6a09",
       "chipFamily": "ESP32-S3",
       "parts": [
-        {
-          "path": "zeiterfassung/firmware.bin",
-          "offset": 65536
-        }
+        { "path": "zeiterfassung/firmware.bin", "offset": 65536 }
       ]
     },
     {
@@ -18,10 +15,10 @@
       "version": "f6d0946",
       "chipFamily": "ESP32",
       "parts": [
-        {
-          "path": "lohne-relaisboard/firmware.bin",
-          "offset": 65536
-        }
+        { "path": "lohne-relaisboard/bootloader.bin", "offset": 4096 },
+        { "path": "lohne-relaisboard/partitions.bin", "offset": 32768 },
+        { "path": "lohne-relaisboard/ota_data_initial.bin", "offset": 53248 },
+        { "path": "lohne-relaisboard/firmware.bin", "offset": 65536 }
       ]
     },
     {
@@ -29,10 +26,9 @@
       "version": "f6d0946",
       "chipFamily": "ESP32-S3",
       "parts": [
-        {
-          "path": "lohne-display/firmware.bin",
-          "offset": 65536
-        }
+        { "path": "lohne-display/bootloader.bin", "offset": 0 },
+        { "path": "lohne-display/partitions.bin", "offset": 32768 },
+        { "path": "lohne-display/firmware.bin", "offset": 65536 }
       ]
     }
   ]
