@@ -35,7 +35,7 @@
     }
   ,{
       "name": "Zerfa Display",
-      "version": "1fe8d13",
+      "version": "fe41038",
       "chipFamily": "ESP32-S3",
       "parts": [
         { "path": "zerfa-display/bootloader.bin", "offset": 0 },
