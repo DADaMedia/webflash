@@ -1,0 +1,15 @@
+{
+  "name": "Zeiterfassung",
+  "version": "65e6a09",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "/flash/zeiterfassung/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

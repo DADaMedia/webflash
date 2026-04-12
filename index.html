@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFlash - ESP32 Firmware Flashing</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+        h1 { color: #333; margin-bottom: 10px; font-size: 32px; }
+        .subtitle { color: #666; margin-bottom: 30px; font-size: 14px; }
+        .project-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .project-name { font-size: 18px; font-weight: 600; color: #333; margin-bottom: 6px; }
+        .project-version { font-size: 12px; color: #999; margin-bottom: 15px; }
+        .chip { display: inline-block; background: #f0f0f0; padding: 6px 12px; border-radius: 16px; font-size: 12px; color: #666; margin-bottom: 15px; }
+        esp-web-install-button {
+            display: block;
+            width: 100%;
+        }
+        esp-web-install-button::part(button) {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 WebFlash</h1>
+        <p class="subtitle">ESP32 Firmware Flashing Interface</p>
+        <div id="projects">
+            <div style="text-align:center;color:#999;padding:40px 20px;">Loading projects...</div>
+        </div>
+    </div>
+
+    <script>
+        async function loadProjects() {
+            try {
+                const res = await fetch('/flash/manifest.json');
+                const manifest = await res.json();
+                const div = document.getElementById('projects');
+                div.innerHTML = '';
+
+                if (!manifest.builds || manifest.builds.length === 0) {
+                    div.innerHTML = '<p style="text-align:center;color:#999;">No projects available.</p>';
+                    return;
+                }
+
+                manifest.builds.forEach((build, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'project-item';
+                    item.innerHTML = `
+                        <div class="project-name">${build.name}</div>
+                        <div class="project-version">${build.version}</div>
+                        <span class="chip">${build.chipFamily}</span><br><br>
+                        <esp-web-install-button manifest="/flash/manifests/manifest-${i}.json"></esp-web-install-button>
+                    `;
+                    div.appendChild(item);
+                });
+
+                // Create individual manifests for esp-web-tools
+                manifest.builds.forEach(async (build, i) => {
+                    const buildManifest = {
+                        name: build.name,
+                        version: build.version,
+                        builds: [{
+                            chipFamily: build.chipFamily,
+                            parts: build.parts.map(p => ({
+                                path: `/flash/${p.path}`,
+                                offset: p.offset
+                            }))
+                        }]
+                    };
+                    // Store in window for serving
+                    window[`manifest_${i}`] = buildManifest;
+                });
+            } catch(e) {
+                document.getElementById('projects').innerHTML = `<p style="color:red;">Error: ${e.message}</p>`;
+            }
+        }
+        loadProjects();
+    </script>
+</body>
+</html>

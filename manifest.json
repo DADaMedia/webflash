@@ -1,0 +1,17 @@
+{
+  "name": "WebFlash Projects",
+  "version": "1.0.0",
+  "builds": [
+    {
+      "name": "Zeiterfassung",
+      "version": "65e6a09",
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "zeiterfassung/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
