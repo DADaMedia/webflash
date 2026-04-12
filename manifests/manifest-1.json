@@ -1,0 +1,15 @@
+{
+  "name": "Lohne Relaisboard",
+  "version": "f6d0946",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "/flash/lohne-relaisboard/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

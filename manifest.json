@@ -12,6 +12,28 @@
           "offset": 65536
         }
       ]
+    },
+    {
+      "name": "Lohne Relaisboard",
+      "version": "f6d0946",
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "lohne-relaisboard/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    },
+    {
+      "name": "Lohne Display",
+      "version": "f6d0946",
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "lohne-display/firmware.bin",
+          "offset": 65536
+        }
+      ]
     }
   ]
 }

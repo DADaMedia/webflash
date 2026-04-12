@@ -1,0 +1,15 @@
+{
+  "name": "Lohne Display",
+  "version": "f6d0946",
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "/flash/lohne-display/firmware.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}
